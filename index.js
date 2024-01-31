@@ -13,9 +13,9 @@ const iosDevString = `${OS[1]}-${ENV[0]}`
 const iosTestString = `${OS[1]}-${ENV[1]}`
 
 const envToCreate = {
-  androidDev: true,
-  androidTest: true,
-  iosDev: true,
+  androidDev: false,
+  androidTest: false,
+  iosDev: false,
   iosTest: true
 }
 
@@ -53,7 +53,7 @@ function createAppCenterUrl (OS_ENV, url){
   const branchToArray = url.split("/")
 
   return {
-    url: `${APPCENTER_URL_1}${OS_ENV}${APPCENTER_URL_2}${branchToArray[0]}%2F${branchToArray[1]}`,
+    url: `${process.env.APPCENTER_URL_1}${OS_ENV}${process.env.APPCENTER_URL_2}${branchToArray[0]}%2F${branchToArray[1]}`,
     OS_ENV
   }
 }
